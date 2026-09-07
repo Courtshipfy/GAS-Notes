@@ -1,0 +1,41 @@
+# ===== 操作系统 / 通用杂项 =====
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.log
+*.tmp
+~$*
+
+# ===== IDE / 编辑器 =====
+.vs/
+.vscode/
+.idea/
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.VC.db
+*.VC.VC.opendb
+*.opensdf
+*.sdf
+*.opendb
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# ===== Unreal Engine 生成目录（对仓库内任意 UE 项目生效）=====
+# 这些目录/文件都可以由引擎或 UBT 随时重新生成，不应入库
+**/Binaries/
+**/Intermediate/
+**/Saved/
+**/DerivedDataCache/
+**/Build/
+**/StagedBuilds/
+**/Manifest/
+**/AutomationTool/
+
+# ===== UE 编辑器缓存/临时备份 =====
+*.umap.bak
+*.uasset.bak

@@ -30,7 +30,7 @@
 
 ### A1 数值与标签（地基 · 硬门槛）
 - **概念**：Gameplay Tag → Gameplay Attribute → Attribute Set
-- **读**：官方《Your First 60 Minutes with GAS》（有中文版）→ GASDocumentation 的 *Gameplay Tags / Attributes / Attribute Set* 章节 → 官方对应文档页
+- **读**：本仓库中文译版 [docs/your-first-60-minutes-with-gas-zh.md](docs/your-first-60-minutes-with-gas-zh.md)（官方《Your First 60 Minutes with GAS》的人工中文翻译，含术语表与常见坑；原图见英文原文）→ GASDocumentation 的 *Gameplay Tags / Attributes / Attribute Set* 章节 → 官方对应文档页
 - **10 分钟实验**：角色挂 ASC + 含 `MaxHealth/Health` 的 AttributeSet，C++ 读写、HUD 显示
 - **收口自查**：Tag 与枚举的差别；Attribute「存值不存逻辑」；AttributeSet 的 `PreAttributeChange` / `PostGameplayEffectExecute` 钩子用途
 

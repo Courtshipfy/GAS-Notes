@@ -1,0 +1,31 @@
+# AbilitiesLab UE 项目忽略规则（独立使用时也成立；仓库根的 .gitignore 已覆盖全仓库，二者一致）
+
+# 系统/IDE
+Desktop.ini
+Thumbs.db
+.vs/
+.vscode/
+.idea/
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.VC.db
+*.VC.VC.opendb
+*.opensdf
+*.sdf
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# UE 生成目录
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Build/
+StagedBuilds/
+Manifest/
+AutomationTool/
+*.log
