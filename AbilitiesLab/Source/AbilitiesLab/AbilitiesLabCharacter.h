@@ -1,4 +1,4 @@
-// 可玩角色 —— 对应教程「第 0 步」：挂 ASC、实现 IAbilitySystemInterface、设置 Owner/Avatar
+// 可玩角色 —— 对应教程第 0 步至第 3.2 节：挂 ASC/属性集并提供蓝图接入点。
 // 说明：本实验项目不使用第三人称模板内容，视觉用占位方块；移动/镜头为传统输入方案。
 #pragma once
 
@@ -10,6 +10,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "LabAbilitySystemComponent.h"
+#include "LabHealthAttributeSet.h"
 #include "AbilitiesLabCharacter.generated.h"
 
 UCLASS()
@@ -31,9 +32,13 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
-	// —— GAS（第 0 步）——
+	// —— GAS（第 0 步至第 3.2 节）——
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GAS")
 	TObjectPtr<ULabAbilitySystemComponent> LabAbilitySystemComp;
+
+	// ASC 会在初始化时自动发现角色拥有的 AttributeSet 子对象。
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GAS")
+	TObjectPtr<ULabHealthAttributeSet> HealthSet;
 
 	// —— 镜头与占位视觉 ——
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Visual")

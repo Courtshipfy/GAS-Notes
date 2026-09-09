@@ -10,4 +10,7 @@ UCLASS()
 class ABILITIESLAB_API ULabAbilitySystemComponent : public UAbilitySystemComponent
 {
 	GENERATED_BODY()
+
+public:
+	ULabAbilitySystemComponent();
 };

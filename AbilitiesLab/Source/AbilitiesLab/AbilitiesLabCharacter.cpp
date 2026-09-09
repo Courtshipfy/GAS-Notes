@@ -11,6 +11,9 @@ AAbilitiesLabCharacter::AAbilitiesLabCharacter()
 	// ===== GAS：挂能力系统组件（第 0 步）=====
 	LabAbilitySystemComp = CreateDefaultSubobject<ULabAbilitySystemComponent>(TEXT("AbilitySystem"));
 
+	// ===== GAS：生命属性集（第 1 步）=====
+	HealthSet = CreateDefaultSubobject<ULabHealthAttributeSet>(TEXT("HealthSet"));
+
 	// ===== 占位可见体（无模板网格时的简易替身）=====
 	BodyMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BodyMesh"));
 	BodyMesh->SetupAttachment(GetCapsuleComponent());

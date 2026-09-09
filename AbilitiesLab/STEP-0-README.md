@@ -1,9 +1,9 @@
-# AbilitiesLab —— GAS 学习实验项目（第 0 步已完成）
+# AbilitiesLab —— GAS 学习实验项目（C++ 已完成至第 3.2 节）
 
-> 对应 [docs/your-first-60-minutes-with-gas-zh.md](../docs/your-first-60-minutes-with-gas-zh.md) 的「第 0 步 · 项目设置」与仓库根 [LEARNING-ROADMAP.md](../LEARNING-ROADMAP.md) 阶段 A。
+> 对应 [docs/your-first-60-minutes-with-gas-zh.md](../docs/your-first-60-minutes-with-gas-zh.md) 的第 0 步至第 3.2 节，以及仓库根 [LEARNING-ROADMAP.md](../LEARNING-ROADMAP.md) 阶段 A。
 > 引擎：**UE 5.8.1**（教程原文按 5.5 编写，本节代码在 5.8 同样适用）。
 
-## 已完成的第 0 步内容
+## 已完成的 C++ 内容
 
 | 教程条目 | 落地情况 |
 |---|---|
@@ -12,6 +12,9 @@
 | 0.3 创建 ASC 子类并挂到角色 | ✅ `ULabAbilitySystemComponent`（`LabAbilitySystemComponent.h`）挂到 `AAbilitiesLabCharacter`（变量 `LabAbilitySystemComp`） |
 | 0.4 实现 IAbilitySystemInterface | ✅ `AAbilitiesLabCharacter : public IAbilitySystemInterface` + `GetAbilitySystemComponent()` |
 | 0.5 设置 Owner 与 Avatar | ✅ `BeginPlay` 里 `InitAbilityActorInfo(this, this)`；另在 `PossessedBy/UnPossessed` 补了 `RefreshAbilityActorInfo()`（修复多人 PC 过期崩溃的常见坑） |
+| 1.1–1.3 生命属性集 | ✅ 新增 `ULabHealthAttributeSet`，包含 `Health / MaxHealth`、访问器、100/100 初始值，并挂到角色 |
+| 3.1 属性钳制 | ✅ `PreAttributeChange` 将 `Health` 钳制到 `[0, MaxHealth]` |
+| 3.2 属性变化通知 | ✅ 本地变化和网络复制都会广播蓝图可绑定的 `OnHealthChanged` |
 
 ## 附带的额外配置（实验项目自备，非教程必需）
 
@@ -31,6 +34,8 @@
 
 首次打开编辑器会提示编译缺失模块——点 Yes 让它编译（或先运行过仓库内的编译命令）。
 
-## 下一步（教程第 1 步：Attribute Set 入门）
+## 仍需在编辑器中完成的蓝图配置
 
-在 `Source/AbilitiesLab/` 下新建 `ULabHealthAttributeSet`（继承 `UAttributeSet`，定义 `Health / MaxHealth`，`ATTRIBUTE_ACCESSORS` 宏，构造函数 `InitHealth(100)/InitMaxHealth(100)`），并把 `HealthSet` 挂到角色构造函数；然后 PIE（Shift+` 打开 Gameplay Debugger）验证 100/100。
+- 2.2–2.3：创建 `GE_Health_Minus15`，并用调试输入把它施加给自己；
+- 3.3：创建 `WBP_HealthBarWorld`，绑定 `ULabHealthAttributeSet.OnHealthChanged`，再给角色蓝图添加 Widget Component；
+- PIE 后可用 Gameplay Debugger 验证初始值为 `Health = 100 / MaxHealth = 100`。
