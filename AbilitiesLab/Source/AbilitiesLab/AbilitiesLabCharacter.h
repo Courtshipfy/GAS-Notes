@@ -1,4 +1,4 @@
-// 可玩角色 —— 对应教程第 0 步至第 3.2 节：挂 ASC/属性集并提供蓝图接入点。
+// 可玩角色 —— 对应教程第 0 步至第 4.3 节：挂 ASC/属性集并提供蓝图接入点。
 // 说明：本实验项目不使用第三人称模板内容，视觉用占位方块；移动/镜头为传统输入方案。
 #pragma once
 
@@ -32,7 +32,7 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
-	// —— GAS（第 0 步至第 3.2 节）——
+	// —— GAS（第 0 步至第 4.3 节）——
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GAS")
 	TObjectPtr<ULabAbilitySystemComponent> LabAbilitySystemComp;
 

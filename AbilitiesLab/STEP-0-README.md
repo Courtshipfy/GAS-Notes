@@ -1,6 +1,6 @@
-# AbilitiesLab —— GAS 学习实验项目（C++ 已完成至第 3.2 节）
+# AbilitiesLab —— GAS 学习实验项目（C++ 已完成至第 4.3 节）
 
-> 对应 [docs/your-first-60-minutes-with-gas-zh.md](../docs/your-first-60-minutes-with-gas-zh.md) 的第 0 步至第 3.2 节，以及仓库根 [LEARNING-ROADMAP.md](../LEARNING-ROADMAP.md) 阶段 A。
+> 对应 [docs/your-first-60-minutes-with-gas-zh.md](../docs/your-first-60-minutes-with-gas-zh.md) 的第 0 步至第 4.3 节，以及仓库根 [LEARNING-ROADMAP.md](../LEARNING-ROADMAP.md) 阶段 A。
 > 引擎：**UE 5.8.1**（教程原文按 5.5 编写，本节代码在 5.8 同样适用）。
 
 ## 已完成的 C++ 内容
@@ -15,6 +15,10 @@
 | 1.1–1.3 生命属性集 | ✅ 新增 `ULabHealthAttributeSet`，包含 `Health / MaxHealth`、访问器、100/100 初始值，并挂到角色 |
 | 3.1 属性钳制 | ✅ `PreAttributeChange` 将 `Health` 钳制到 `[0, MaxHealth]` |
 | 3.2 属性变化通知 | ✅ 本地变化和网络复制都会广播蓝图可绑定的 `OnHealthChanged` |
+| 3.4 Damage 元属性 | ✅ GE 写入 `Damage` 后由 `PostGameplayEffectExecute` 扣减 `Health`，并将 `Damage` 归零；`Health` 已从 Modifier 列表隐藏 |
+| 3.5 Execution 概念 | ✅ 当前代码已具备接收 GE Modifier 或后续自定义 Execution 输出到 `Damage` 的结算入口（本节教程不要求实现具体 Execution 类） |
+| 4.1–4.2 Gameplay Ability | ℹ️ 本节是 GA 蓝图创建、授予、激活及网络策略配置，没有新增必需 C++ 类型 |
+| 4.3 Energy 属性 | ✅ 新增 `Energy / MaxEnergy`、100/100 初始值、访问器、复制回调、范围钳制和 `OnEnergyChanged` |
 
 ## 附带的额外配置（实验项目自备，非教程必需）
 
@@ -36,6 +40,7 @@
 
 ## 仍需在编辑器中完成的蓝图配置
 
-- 2.2–2.3：创建 `GE_Health_Minus15`，并用调试输入把它施加给自己；
+- 2.2–2.3 / 3.4：将 `GE_Health_Minus15` 的 Modifier 改为 `Damage +15`，并用调试输入把它施加给自己；
 - 3.3：创建 `WBP_HealthBarWorld`，绑定 `ULabHealthAttributeSet.OnHealthChanged`，再给角色蓝图添加 Widget Component；
+- 4.1–4.3：在 `GA_DamageSelf` 中调用 `CommitAbility`，配置 `GE_Cost_Energy20` 和 `GE_Cooldown_DamageSelf`，并在服务器授予技能；
 - PIE 后可用 Gameplay Debugger 验证初始值为 `Health = 100 / MaxHealth = 100`。
